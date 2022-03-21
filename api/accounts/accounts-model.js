@@ -16,7 +16,8 @@ const getById = id => {
 
 const create = account => {
   // DO YOUR MAGIC
-  const [id] =  db('accounts').insert({account})
+  const [id] =  db('accounts').insert({  name: account.name.trim(),
+    budget: account.budget})
   return getById(id)
 }
 
@@ -24,7 +25,7 @@ const updateById = (id, account) => {
   // DO YOUR MAGIC
   db("accounts").where("id", id).update({ account })
   return getById(id)
-}
+}ß
 
 const deleteById = id => {
   // DO YOUR MAGIC
